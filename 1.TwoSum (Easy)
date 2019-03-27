@@ -1,0 +1,14 @@
+'''1.twoSum'''
+
+nums = [2,7,11,12]
+target = 9
+class Solution:
+    def twoSum(self, nums: 'List[int]', target: 'int') -> 'List[int]':
+        dic = {}
+        for index in range(len(nums)):
+            if target - nums[index] in dic:
+                return [dic[target - nums[index]],index]
+            dic[nums[index]] = index
+        return [-1,-1]
+# if use return: whenever have one right answer, it will
+# break the for loop and return answer.
