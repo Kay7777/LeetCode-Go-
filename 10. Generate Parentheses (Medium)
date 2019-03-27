@@ -1,0 +1,29 @@
+''' 10.Generate Parentheses (Medium)'''
+
+
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        '''recurrence'''
+        result = []
+        if n == 0:
+            return  result
+
+        self.helper(n, n, '', resule)
+        # create a recurrence funtion
+        # it should have amount of left and right breaks
+        # and what should be return
+        # finally append into the result
+        return result
+
+    def helper(self, l, r, item, result):
+        # l, r are the amoiunts of remaining of '('')'
+        # if left remaining is bigger than r remaining,
+        # it should somewhere wrong in the putting
+        if r < l:
+            return
+        if l > 0:
+            self.helper(l - 1, r, item + '(', result)
+        if r > 0:
+            self.helper(l, r - 1, item + ')', result)
+        if l == 0 and r == 0:
+            result.append(item)
