@@ -1,0 +1,18 @@
+'''5. inverse integer'''
+class Solution(object):
+    def reverse(self, x):
+        num = 0
+        a = abs(x)
+        while a != 0:
+            temp  = a % 10  # get the last num of the integer
+            num = num * 10 + temp   # get last num * 10 to second seat
+            a = int(a/10)
+            # delete last num of integer
+            # also can use a // 10
+            # all get the int delete %
+        if x > 0 and num <= 2 ** 31:
+            return num
+        elif x < 0 and -num > -2 ** 31:
+            return -num
+        else:
+            return 0
