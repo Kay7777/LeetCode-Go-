@@ -1,0 +1,25 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        num = haystack.count(needle)
+        if needle == '':
+            return 0
+        # if the needle is empty string, return 0 
+        elif num != 0:
+            list1 = haystack.split(needle)
+            index = len(list1[0])
+            return index
+        # if the num is not 0, separate it by the needle 
+        # and get the len of first list itme then return it
+        else:
+            return -1
+        
+        
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        for i in range(len(haystack) - len(needle)+1):
+            # index up tp len(needle)-1 is for not out of range
+            if haystack[i:i+len(needle)] == needle:
+                # get the substring out of the haystack for each needle len
+                # >> string to check whether same or not
+                return i
+        return i
