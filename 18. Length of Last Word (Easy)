@@ -1,0 +1,22 @@
+Solution 1
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        count = 0
+        local_count = 0
+        for i in range(len(s)):
+            if s[i] == ' ':
+                local_count = 0
+            else: 
+                local_count += 1
+                count = local_count
+        return count
+        
+        
+Solution 2
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        alist = s.split()
+        if len(alist) == 0:
+            return 0
+        return len(alist[-1])
+        
