@@ -40,14 +40,20 @@ class Solution:
         if root is None:
             return []
         result, current = [], [root]
+        # root is the whole TreeNode, not just a root.val
         while current:
             next_level, vals = [],[]
             for node in current:
+            # node is subTreeNode in the current
                 vals.append(node.val)
+                # vals is the list consisting of each node the same level
                 if node.left:
                     next_level.append(node.left)
+                    # next_level to write down the next level nodes
+                    # those are not value, but subTreeNode
                 if node.right:
                     next_level.append(node.right)
             current = next_level
+            # current change into subTreeNode
             result.append(vals)
         return result[::-1]
