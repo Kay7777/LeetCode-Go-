@@ -1,0 +1,21 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        while m>0 and n>0:
+            if nums1[m-1] < nums2[n-1]:
+                nums1[m-1+n] = nums2[n-1]
+                # if the nums2 is bigger than the nums1,
+                # write it at back of nums2
+                n = n-1
+            else:
+                nums1[m-1+n], nums1[m-1] = nums1[m-1], nums1[m-1+n]
+                # if nums1 if bigger than the nums2, just swap them 
+                # after those swap, will get empty in the first some space
+                m = m-1
+        if m == 0 and n>0:
+            # when nums1 list has more, it does not matter just leave 
+            # there and they are smaller
+            # if nums2 list left more, we need to put them before the nums1
+            nums1[:n] = nums2[:n]
