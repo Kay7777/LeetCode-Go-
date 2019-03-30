@@ -15,6 +15,7 @@ class Solution:
             return None
         mid = (start + end) // 2
         node = TreeNode(nums[mid])
+        # because of nums is the list instead of the Tree
         # get the first node be the mid value of the list
         node.left = self.to_bst(nums,start,mid-1)
         node.right = self.to_bst(nums,mid+1,end)
