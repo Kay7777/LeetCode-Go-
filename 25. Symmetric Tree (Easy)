@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root is None:
+            return True
+        # this funtion only check dose the root is empty
+        return self.isSymmetricRecu(root.left, root.right)
+    
+    def isSymmetricRecu(self,left,right):
+        # firstly check does the first childs are empty
+        if left is None and right is None:
+            return True
+        # them check does the child's child are empty
+        if left is None or right is None or left.val != right.val:
+            return False
+        # if not empty we begin our recursion to check rr,ll,rl,lr
+        return self.isSymmetricRecu(left.left,right.right) and self.isSymmetricRecu(left.right, right.left)
+    
