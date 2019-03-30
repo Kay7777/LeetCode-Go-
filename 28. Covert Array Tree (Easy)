@@ -1,0 +1,21 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        return self.to_bst(nums , 0, len(nums)-1)
+        
+    def to_bst(self,nums, start,end):
+        # get a start index and end index in one tree
+        if start > end:
+            return None
+        mid = (start + end) // 2
+        node = TreeNode(nums[mid])
+        # get the first node be the mid value of the list
+        node.left = self.to_bst(nums,start,mid-1)
+        node.right = self.to_bst(nums,mid+1,end)
+        return node
