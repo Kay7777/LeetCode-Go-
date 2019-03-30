@@ -1,0 +1,7 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        pre, new = 0, 1
+        for i in range(n):
+            pre, new = new, new + pre
+        return  new
+    # 1,2,3,5,8......
