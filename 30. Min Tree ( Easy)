@@ -1,4 +1,4 @@
-solution 1 Failure
+solution 1 (My solution)
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -8,21 +8,21 @@ solution 1 Failure
 
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
+        count = 0
         if root is None:
-            return 0
-        count = 1
-        return min(self.get_min(root.left,count), self.get_min(root.right, count))
+            return count
+        return self.get_min(root, count)
     def get_min(self, root,count):
         if root is None:
             return count
         left_root, right_root = self.get_min(root.left,count), self.get_min(root.right, count)
-        if left_root is None and right_root is None:
-            return count
-        count += 1
-        return count
+        if left_root and right_root:
+            return min(left_root, right_root) + 1
+        else:
+            return max(left_root, right_root) + 1
         
         
- solution 2 success
+ solution 2 (referrence) 
  
 # Definition for a binary tree node.
 # class TreeNode:
