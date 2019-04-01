@@ -1,0 +1,36 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows is None:
+            return []
+        if numRows == 1:
+            return [[1]]
+        if numRows == 2:
+            return [[1],[1,1]]
+        basic = [[1],[1,1]]
+        for i in range(numRows-2):
+            basic.append(self.get_new(numRows,basic))
+        return basic
+            
+        
+        
+    def get_new(self,numRows,basic): 
+        alist = [1]
+        for i in range(numRows-2):
+            new_num = basic[-1][i] + basic[-1][i+1]
+            alist.append(new_num)
+        alist.append(1)
+        return alist
+        
+        
+        
+        class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        result = []
+        for i in range(numRows):
+            result.append([])
+            for j in range(i+1):
+                if j in (0,i):
+                    result[i].append(1)
+                else:
+                    result[i].append(result[i-1][j-1]+result[i-1][j])
+        return result
